@@ -1,6 +1,3 @@
-import ejs from 'ejs';
-import path from 'path';
-import { sendEmail } from '../../utils/sendEmail';
 import { User } from './user.model';
 
 const findLastUserId = async () => {
@@ -45,7 +42,7 @@ export const findLastAdminId = async () => {
       role: 'admin',
     },
     {
-      id: 1,
+      userId: 1,
       _id: 0,
     },
   )
@@ -69,33 +66,4 @@ export const generateAdminId = async () => {
 
   incrementId = `A-${incrementId}`;
   return incrementId;
-};
-
-const createVerificationOTP = () => {
-  const code = Math.floor(100000 + Math.random() * 900000).toString();
-
-  return {
-    code,
-  };
-};
-
-export const sendEmailForVerification = async (email: string, name: string) => {
-  const verificationOtp = createVerificationOTP();
-
-  // Prepare email data
-  const emailData = {
-    code: verificationOtp.code,
-    email,
-    name,
-  };
-
-  // Render email template
-  const html = await ejs.renderFile(
-    path.join(__dirname, '../../templates/email.verification.ejs'),
-    emailData,
-  );
-
-  await sendEmail(email, 'Verify your email address', html);
-
-  return verificationOtp.code;
 };
