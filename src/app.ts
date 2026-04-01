@@ -3,7 +3,7 @@ import cors from 'cors';
 import notFound from './app/middlewares/notFound';
 import router from './app/routes';
 import globalErrorHandler from './app/middlewares/globalErrorhandler';
-import config from "./app/config";
+import config from './app/config';
 
 const app: Application = express();
 

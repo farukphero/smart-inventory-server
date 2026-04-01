@@ -3,11 +3,10 @@ import mongoose from 'mongoose';
 import config from '../../config';
 import AppError from '../../errors/AppError';
 import { createToken } from '../Auth/auth.utils';
-import { isEmailValid, UserRole } from './user.constant';
+import { isEmailValid } from './user.constant';
 import { TUser } from './user.interface';
 import { User } from './user.model';
 import { generateUserId } from './user.utils';
-import { JwtPayload } from 'jsonwebtoken';
 
 const registerUserIntoDB = async (payload: TUser) => {
   const isAuthEmail = isEmailValid(payload.email);
@@ -26,10 +25,7 @@ const registerUserIntoDB = async (payload: TUser) => {
     }).session(session);
 
     if (existingUser) {
-      throw new AppError(
-        StatusCodes.NOT_FOUND,
-        'Email is already in use.',
-      );
+      throw new AppError(StatusCodes.NOT_FOUND, 'Email is already in use.');
     }
 
     // Create a new user
@@ -42,8 +38,6 @@ const registerUserIntoDB = async (payload: TUser) => {
       ],
       { session },
     );
-
-
 
     // JWT Payload
     const jwtPayload = {
@@ -84,9 +78,6 @@ const registerUserIntoDB = async (payload: TUser) => {
   }
 };
 
-
-
 export const UserServices = {
   registerUserIntoDB,
-
 };

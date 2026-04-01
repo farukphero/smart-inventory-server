@@ -1,14 +1,15 @@
-import config from '../config';
+
+import config from "../config";
 import { USER_ROLE, UserStatus } from '../modules/User/user.constant';
 import { User } from '../modules/User/user.model';
 
 const superUser = {
-  id: 'OF-0001',
+  userId: 'OF-0001',
   fullName: 'OF',
-  email: 'abc@gmail.com',
-  password: config.super_admin_password,
+  email: 'faruk@gmail.com',
+  password: config.super_admin_password as string,
   role: USER_ROLE.superAdmin,
-  status: UserStatus.IN_PROGRESS,
+  status: UserStatus.ACTIVE,
   isDeleted: false,
 };
 

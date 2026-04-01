@@ -1,6 +1,5 @@
-import mongoose, { Schema, model } from "mongoose";
-import { TProduct } from "./products.interface";
-
+import mongoose, { Schema, model } from 'mongoose';
+import { TProduct } from './products.interface';
 
 const productSchema = new Schema<TProduct>(
   {
@@ -16,7 +15,7 @@ const productSchema = new Schema<TProduct>(
     },
     categoryId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "ProductCategory",
+      ref: 'ProductCategory',
       required: true,
     },
     price: {
@@ -36,20 +35,20 @@ const productSchema = new Schema<TProduct>(
     },
     status: {
       type: String,
-      enum: ["ACTIVE", "OUT_OF_STOCK"],
-      default: "ACTIVE",
+      enum: ['ACTIVE', 'OUT_OF_STOCK'],
+      default: 'ACTIVE',
     },
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: 'User',
       required: true,
     },
   },
   {
     timestamps: true,
-  }
+  },
 );
 
-const Product = model<TProduct>("Product", productSchema);
+const Product = model<TProduct>('Product', productSchema);
 
 export default Product;

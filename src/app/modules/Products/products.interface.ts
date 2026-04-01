@@ -1,6 +1,6 @@
-import { Types } from "mongoose";
+import { Types } from 'mongoose';
 
-export type TProductStatus = "ACTIVE" | "OUT_OF_STOCK";
+export type TProductStatus = 'ACTIVE' | 'OUT_OF_STOCK';
 
 export type TProduct = {
   productName: string;

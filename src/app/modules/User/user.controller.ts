@@ -14,10 +14,6 @@ const registerUser = catchAsync(async (req, res) => {
   });
 });
 
-
-
 export const UserControllers = {
   registerUser,
-
-
 };

@@ -1,12 +1,13 @@
+import catchAsync from '../../utils/catchAsync';
+import sendResponse from '../../utils/sendResponse';
+import httpStatus from 'http-status';
+import { ProductCategoryService } from './productCategory.service';
 
-import catchAsync from "../../utils/catchAsync";
-import sendResponse from "../../utils/sendResponse";
-import  httpStatus  from 'http-status';
-import { ProductCategoryService } from "./productCategory.service";
-
-
-const createProductCategory =catchAsync(async (req, res) => {
-  const result = await ProductCategoryService.createProductCategory(req.body, req.user);
+const createProductCategory = catchAsync(async (req, res) => {
+  const result = await ProductCategoryService.createProductCategory(
+    req.body,
+    req.user,
+  );
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -17,7 +18,9 @@ const createProductCategory =catchAsync(async (req, res) => {
 });
 
 const getAllProductCategories = catchAsync(async (req, res) => {
-  const result = await ProductCategoryService.getAllProductCategoriesFromDB(req.query);
+  const result = await ProductCategoryService.getAllProductCategoriesFromDB(
+    req.query,
+  );
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -27,9 +30,10 @@ const getAllProductCategories = catchAsync(async (req, res) => {
   });
 });
 
-
 const getSingleCategoryFromDB = catchAsync(async (req, res) => {
-  const result = await ProductCategoryService.getSingleCategoryFromDB(req.params.id);
+  const result = await ProductCategoryService.getSingleCategoryFromDB(
+    req.params.id,
+  );
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -40,7 +44,11 @@ const getSingleCategoryFromDB = catchAsync(async (req, res) => {
 });
 
 const updateCategoryIntoDB = catchAsync(async (req, res) => {
-  const result = await ProductCategoryService.updateCategoryIntoDB(req.params.id, req.body, req.user);
+  const result = await ProductCategoryService.updateCategoryIntoDB(
+    req.params.id,
+    req.body,
+    req.user,
+  );
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -50,9 +58,11 @@ const updateCategoryIntoDB = catchAsync(async (req, res) => {
   });
 });
 
-
 const deleteCategoryFromDB = catchAsync(async (req, res) => {
-  const result = await ProductCategoryService.deleteCategoryFromDB(req.params.id, req.user);
+  const result = await ProductCategoryService.deleteCategoryFromDB(
+    req.params.id,
+    req.user,
+  );
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -66,5 +76,5 @@ export const ProductCategoryController = {
   getAllProductCategories,
   getSingleCategoryFromDB,
   updateCategoryIntoDB,
-  deleteCategoryFromDB
-}
+  deleteCategoryFromDB,
+};

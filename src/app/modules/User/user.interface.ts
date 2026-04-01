@@ -1,15 +1,13 @@
-import { Model, Types } from 'mongoose';
+import { Model } from 'mongoose';
 import { USER_ROLE } from './user.constant';
 
-
 export interface TUser {
-
   userId: string;
   fullName: string;
   email: string;
   password: string;
   passwordChangedAt?: Date;
-  role: 'superAdmin' | 'admin' | 'user' ;
+  role: 'superAdmin' | 'admin' | 'user';
   status: 'in-progress' | 'blocked' | 'active';
   otp: string;
   otpExpireDate: Date;

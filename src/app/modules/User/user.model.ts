@@ -2,15 +2,10 @@ import bcrypt from 'bcrypt';
 import { Schema, model } from 'mongoose';
 import config from '../../config';
 import { UserRole, UserStatus } from './user.constant';
-import {
-  TUser,
-  UserModel,
-} from './user.interface';
+import { TUser, UserModel } from './user.interface';
 
 const userSchema = new Schema<TUser, UserModel>(
   {
-
-
     userId: {
       type: String,
       unique: true,

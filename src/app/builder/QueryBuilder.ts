@@ -12,8 +12,6 @@ class QueryBuilder<T> {
     this.query = query;
   }
 
-
-
   search(searchableFields: string[]) {
     const searchTerm = this?.query?.searchTerm;
     if (searchTerm) {
@@ -29,8 +27,6 @@ class QueryBuilder<T> {
 
     return this;
   }
-
-
 
   filter() {
     const queryObj = { ...this.query }; // copy

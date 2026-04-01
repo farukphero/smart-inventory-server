@@ -21,4 +21,6 @@ export default {
 
   client_side_url: process.env.CLIENT_SIDE_URL,
   admin_side_url: process.env.ADMIN_SIDE_URL,
+
+  super_admin_password: process.env.SUPER_ADMIN_PASSWORD,
 };
