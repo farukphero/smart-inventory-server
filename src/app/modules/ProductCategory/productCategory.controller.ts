@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+
 import catchAsync from "../../utils/catchAsync";
 import sendResponse from "../../utils/sendResponse";
 import  httpStatus  from 'http-status';
@@ -16,7 +16,7 @@ const createProductCategory =catchAsync(async (req, res) => {
   });
 });
 
-const getAllProductCategories = catchAsync(async (req: Request, res: Response) => {
+const getAllProductCategories = catchAsync(async (req, res) => {
   const result = await ProductCategoryService.getAllProductCategoriesFromDB(req.query);
 
   sendResponse(res, {
@@ -28,7 +28,7 @@ const getAllProductCategories = catchAsync(async (req: Request, res: Response) =
 });
 
 
-const getSingleCategoryFromDB = catchAsync(async (req: Request, res: Response) => {
+const getSingleCategoryFromDB = catchAsync(async (req, res) => {
   const result = await ProductCategoryService.getSingleCategoryFromDB(req.params.id);
 
   sendResponse(res, {
@@ -39,7 +39,7 @@ const getSingleCategoryFromDB = catchAsync(async (req: Request, res: Response) =
   });
 });
 
-const updateCategoryIntoDB = catchAsync(async (req: Request, res: Response) => {
+const updateCategoryIntoDB = catchAsync(async (req, res) => {
   const result = await ProductCategoryService.updateCategoryIntoDB(req.params.id, req.body, req.user);
 
   sendResponse(res, {
@@ -51,7 +51,7 @@ const updateCategoryIntoDB = catchAsync(async (req: Request, res: Response) => {
 });
 
 
-const deleteCategoryFromDB = catchAsync(async (req: Request, res: Response) => {
+const deleteCategoryFromDB = catchAsync(async (req, res) => {
   const result = await ProductCategoryService.deleteCategoryFromDB(req.params.id, req.user);
 
   sendResponse(res, {

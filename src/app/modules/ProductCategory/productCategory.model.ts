@@ -29,6 +29,6 @@ const productCategorySchema = new Schema<TProductCategory>({
     timestamps: true,
   });
 
-const productCategory= model<TProductCategory>('ProductCategory', productCategorySchema);
+const ProductCategory= model<TProductCategory>('ProductCategory', productCategorySchema);
 
-export default productCategory;
+export default ProductCategory;

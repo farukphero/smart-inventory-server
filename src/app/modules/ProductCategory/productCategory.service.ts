@@ -6,7 +6,6 @@ import AppError from "../../errors/AppError";
 import { JwtPayload } from "jsonwebtoken";
 import { User } from "../User/user.model";
 import QueryBuilder from "../../builder/QueryBuilder";
-import { userInfo } from "os";
 import { searchableFields } from "./productCategory.const";
 
  const createProductCategory = async (payload: TProductCategory,   userData: JwtPayload) => {
