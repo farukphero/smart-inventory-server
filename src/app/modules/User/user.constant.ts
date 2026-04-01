@@ -2,8 +2,6 @@ export const USER_ROLE = {
   superAdmin: 'superAdmin',
   admin: 'admin',
   user: 'user',
-  adsOwner: 'adsOwner',
-  member: 'member',
 } as const;
 
 export enum UserStatus {
