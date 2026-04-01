@@ -6,7 +6,7 @@ import { User } from '../modules/User/user.model';
 const superUser = {
   userId: 'OF-0001',
   fullName: 'OF',
-  email: 'faruk@gmail.com',
+  email: 'farukkk@gmail.com',
   password: config.super_admin_password as string,
   role: USER_ROLE.superAdmin,
   status: UserStatus.ACTIVE,
